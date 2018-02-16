@@ -1,0 +1,1 @@
+export { default } from 'building-blocks/components/icon-component/component';
