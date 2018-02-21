@@ -1,1 +1,8 @@
-{{component iconComponentName widthHeight=widthHeight dataTestId=dataTestId}}
+{{#svg-tooltip-wrapper as |wrapper|}}
+  {{#if wrapper.target}}
+    {{component iconComponentName widthHeight=widthHeight dataTestId=dataTestId}}
+  {{/if}}
+  {{#if (and wrapper.tip tooltip)}}
+    {{tooltip}}
+  {{/if}}
+{{/svg-tooltip-wrapper}}

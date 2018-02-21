@@ -1,19 +1,29 @@
 import Component from '@ember/component';
 import layout from './template';
-import D3IconBase from 'building-blocks/mixins/d3-icon-base';
+import SvgBase from 'building-blocks/mixins/svg-base';
 import { select } from 'd3-selection';
 import { arc } from 'd3-shape';
+import { computed } from '@ember/object';
 
-const CircleAngle = Math.PI * 2;
-
-export default Component.extend(D3IconBase, {
+export default Component.extend(SvgBase, {
   layout,
-  widthHeight: 200,
-  drawIcon() {
-    let radius = this.get('widthHeight') / 2;
+  width: 200,
+  height: 200,
+  radius: 100,
+  alignToParent: true,
+
+  gTransform: computed('radius', function() {
+    let radius = this.get('radius');
+    return `translate(${radius}, ${radius})`;
+  }),
+
+  draw() {
+    let radius = this.get('radius');
     let svgPlot = select(this.element);
-    let end = this.get('progress') * CircleAngle / 100;
-    let arcIcon = arc().innerRadius(radius / 2).outerRadius(radius).startAngle(0).endAngle(end);
-    let path = svgPlot.append('g').attr('transform', `translate(${radius}, ${radius})`).append('path').attr('d', arcIcon);
+    let progress = this.get('progress');
+    let end = progress * Math.PI * 2 / 100;
+    let arcIcon = arc().innerRadius(radius - 10).outerRadius(radius).startAngle(0).endAngle(end);
+    let path = svgPlot.select('path');
+    path.attr('d', arcIcon);
   }
 });

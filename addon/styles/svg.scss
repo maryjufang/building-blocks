@@ -1,0 +1,25 @@
+$hover-opacity: 0.5;
+$hover-background: #555555;
+$tip-background: #000000;
+$tip-color: #ffffff;
+
+.svg-background {
+  fill-opacity: 0;
+}
+.svg-background:hover {
+  fill: $hover-background;
+  fill-opacity: $hover-opacity;
+}
+
+g.svg-tooltip-tip {
+  background-color: $tip-background;
+  color: $tip-color;
+  border:solid gray;
+  border-radius: 6px;
+  padding: 5px;
+
+  position: absolute;
+  overflow:visible;
+  cursor: pointer;
+  z-index: 1;
+}
