@@ -24,3 +24,9 @@ This README outlines the details of collaborating on this Ember addon.
 * `ember build`
 
 For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+
+## GitHub Pages
+https://github.com/poetic/ember-cli-github-pages
+pull in latest master
+* `ember github-pages:commit --message 'Release gh-pages'`
+* `git push origin gh-pages:gh-pages`
