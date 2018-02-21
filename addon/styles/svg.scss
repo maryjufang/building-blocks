@@ -1,12 +1,33 @@
 $hover-opacity: 0.5;
-$hover-background: #555555;
-$tip-background: #000000;
-$tip-color: #ffffff;
+$hover-background: $gray;
+$grid-background: $light-gray;
+$tip-background: $black;
+$tip-color: $white;
+$light-blue: $info;
 
-.svg-background {
+.svg-error {
+  fill: $error;
+}
+.svg-warning {
+  fill: $warning;
+}
+.svg-info {
+  fill: $info;
+}
+.svg-default {
+  fill: $black;
+}
+
+.chart-grid {
+  fill: $grid-background;
+}
+.chart-fill {
+  fill: $light-blue;
+}
+.svg-hover-background {
   fill-opacity: 0;
 }
-.svg-background:hover {
+.svg-hover-background:hover {
   fill: $hover-background;
   fill-opacity: $hover-opacity;
 }

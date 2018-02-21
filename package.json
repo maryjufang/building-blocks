@@ -23,6 +23,7 @@
     "ember-cli-babel": "^6.6.0",
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-sass": "^7.1.4",
+    "ember-concurrency": "^0.8.14",
     "ember-d3": "^0.4.1",
     "ember-truth-helpers": "^2.0.0"
   },

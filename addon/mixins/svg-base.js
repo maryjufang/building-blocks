@@ -8,7 +8,6 @@ export default Mixin.create({
   dataTestId: 'icon',
   width: 16,
   height: 16,
-  PI: Math.PI,
   alignToParent: false,
   viewBox: computed('alignToParent', 'width', 'height', function() {
     if (this.get('alignToParent')) {
@@ -20,6 +19,8 @@ export default Mixin.create({
 
   didReceiveAttrs() {
     this._super();
-    run.scheduleOnce('render', this, this.draw)
+    if (this.draw) {
+      run.scheduleOnce('render', this, this.draw)
+    }
   },
 });

@@ -8,6 +8,7 @@ export default Component.extend({
   layout,
   tagName: '',
   dataTestId: 'icon-component',
+  status: "default",
 
   size: 1,
 

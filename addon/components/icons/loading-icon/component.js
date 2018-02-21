@@ -1,14 +1,17 @@
 import Component from '@ember/component';
 import layout from './template';
 import SvgBase from 'building-blocks/mixins/svg-base';
-import { select } from 'd3-selection';
 import { arc } from 'd3-shape';
 import { computed } from '@ember/object';
+import { task, timeout } from 'ember-concurrency';
 
 const DELAY_IN_MS = 50;
+const ARC_RADIUS = 10;
+const ARC_RADIAN = 1.3;
 
 export default Component.extend(SvgBase, {
   layout,
+  status: "default",
   width: computed.alias('widthHeight'),
   height: computed.alias('widthHeight'),
   radius: computed('widthHeight', function() {
@@ -20,19 +23,21 @@ export default Component.extend(SvgBase, {
   }),
 
   draw() {
-    let svgPlot = select(this.element);
-    let path = svgPlot.select('path');
+    this.get('_spin').perform();
+  },
+
+  iconPathD: null,
+  _spin: task(function*() {
     let radius = this.get('radius');
     let start = 0;
-    let arcIcon = arc().innerRadius(radius / 2).outerRadius(radius).startAngle(start).endAngle(start + 1);
-    let spin = (duration) => {
-      path.attr('d', arcIcon);
-      setTimeout(() => {
-        start += 0.05;
-        arcIcon.startAngle(start).endAngle(start + 1);
-        spin(duration);
-      }, duration);
+    let arcRadius = radius * 0.2;
+    arcRadius = arcRadius > ARC_RADIUS ? ARC_RADIUS : arcRadius;
+    let arcIcon = arc().innerRadius(radius - arcRadius).outerRadius(radius);
+    while (true) {
+      arcIcon.startAngle(start).endAngle(start + ARC_RADIAN);
+      this.set('iconPathD', arcIcon());
+      yield timeout(DELAY_IN_MS);
+      start += 0.05;
     }
-    spin(DELAY_IN_MS);
-  }
+  }).cancelOn('deactivate')
 });
