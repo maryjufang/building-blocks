@@ -45,8 +45,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.locationType = 'hash';
-    ENV.baseURL = '/pages/maryjufang/building-blocks/';
-    ENV.rootURL = '/pages/maryjufang/building-blocks/';
+    ENV.rootURL = '/building-blocks/';
   }
 
   return ENV;
