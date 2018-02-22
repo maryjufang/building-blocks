@@ -1,6 +1,15 @@
 <p>chart example:</p>
 
+line chart<br>
+
+{{charts/line-chart isLoading=false data=data yTitle="UNIT"}}
+<br>
+{{charts/line-chart isLoading=true}}
+<br>
+{{charts/line-chart isLoading=false data=nullVariable}}
+<br>
+<br>
+
 progress: {{progress}}<br>
 <div ></div>
-{{charts/progress-circle progress=progress}}<br/><br/>
-{{!charts/bar-chart}}
+{{charts/progress-circle progress=progress}}

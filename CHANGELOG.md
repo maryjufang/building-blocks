@@ -1,3 +1,5 @@
+7. implement line chart
+
 6. update pages to github
 6.1. enable pages in github
 6.2. $ ember install ember-cli-github-pages

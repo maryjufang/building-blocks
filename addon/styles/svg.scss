@@ -1,9 +1,12 @@
 $hover-opacity: 0.5;
 $hover-background: $gray;
 $grid-background: $light-gray;
-$tip-background: $black;
-$tip-color: $white;
-$light-blue: $info;
+$tip-background: $white;
+$tip-color: $black;
+$line-1: #1a1aff;
+$line-2: #1a75ff;
+$line-3: #0099ff;
+$line-4: #66ccff;
 
 .svg-error {
   fill: $error;
@@ -18,11 +21,28 @@ $light-blue: $info;
   fill: $black;
 }
 
+.svg-line {
+  fill: none;
+  stroke-width: 2px;
+}
+.svg-line-1 {
+  stroke: $line-1;
+}
+.svg-line-2 {
+  stroke: $line-2;
+}
+.svg-line-3 {
+  stroke: $line-3;
+}
+.svg-line-4 {
+  stroke: $line-4;
+}
+
 .chart-grid {
   fill: $grid-background;
 }
 .chart-fill {
-  fill: $light-blue;
+  fill: $info;
 }
 .svg-hover-background {
   fill-opacity: 0;
@@ -35,7 +55,7 @@ $light-blue: $info;
 g.svg-tooltip-tip {
   background-color: $tip-background;
   color: $tip-color;
-  border:solid gray;
+  border:solid $gray 1px;
   border-radius: 6px;
   padding: 5px;
 

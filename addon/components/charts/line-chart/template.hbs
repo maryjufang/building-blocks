@@ -1,2 +1,22 @@
-<p>dummy line chart</p>
-{{yield}}
+<g transform="translate(0, 0)">
+  {{#if noChart}}
+    <rect width={{width}} height={{height}} class="chart-grid">
+    </rect>
+    <text x={{noChartText.x}} y={{noChartText.y}} dy=".35em" text-anchor="middle">
+      {{#if isLoading}}
+        Loading
+      {{else}}
+        No data available
+      {{/if}}
+    </text>
+  {{else}}
+    <text x={{yTitleText.x}} y={{yTitleText.y}} transform={{yTitleText.transform}}>{{yTitle}}</text>
+    <g class="y-axis" transform={{yAxisTransform}}>
+    </g>
+    <g class="x-axis" transform={{xAxisTransform}}>
+    </g>
+    <g class="line" transform={{lineAxisTransform}}>
+      <path class="svg-line svg-line-1"></path>
+    </g>
+  {{/if}}
+</g>

@@ -17,10 +17,6 @@ export default Component.extend(SvgBase, {
   radius: computed('widthHeight', function() {
     return this.get('widthHeight') / 2;
   }),
-  gTransform: computed('radius', function() {
-    let radius = this.get('radius');
-    return `translate(${radius}, ${radius})`;
-  }),
 
   draw() {
     this.get('_spin').perform();
