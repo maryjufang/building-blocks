@@ -28,5 +28,5 @@ For more information on using ember-cli, visit [https://ember-cli.com/](https://
 ## GitHub Pages
 https://github.com/poetic/ember-cli-github-pages
 pull in latest master
-* `ember github-pages:commit --message 'Release gh-pages'`
-* `git push origin gh-pages:gh-pages`
+* `ember github-pages:commit --branch master --message 'Release gh-pages'`
+* `git push origin master:master`
