@@ -1,12 +1,13 @@
 import Component from '@ember/component';
 import layout from './template';
-import { run } from '@ember/runloop'
+import { run } from '@ember/runloop';
 import { computed } from '@ember/object';
+import { htmlSafe } from '@ember/string';
+const DELAY_MS = 50;
 
 export default Component.extend({
   layout,
   tagName: 'g',
-  gTransform: null,
   mouseOnTarget: false,
   mouseOnTip: false,
 
@@ -21,14 +22,31 @@ export default Component.extend({
 
   addMouseEventHandlers() {
     this.$().on('mouseenter', (event) => {
-      this.set('gTransform', `translate(${event.clientX}, ${event.clientY})`);
+      let style;
+      let x = event.clientX;
+      let halfWindowWidth = window.innerWidth / 2;
+      if (x > halfWindowWidth) {
+        x = window.innerWidth - x;
+        style = `right: ${x}px; `;
+      } else {
+        style = `left: ${x}px; `;
+      }
+      let y = event.clientY;
+      let halfWindowHeight = window.innerHeight / 2;
+      if (y > halfWindowHeight) {
+        y = window.innerHeight - y;
+        style = `${style}bottom: ${y}px;`;
+      } else {
+        style = `${style}top: ${y}px;`;
+      }
+      this.set('tooltipStyle', new htmlSafe(style));
       this.set('mouseOnTarget', true);
     });
 
     this.$().on('mouseleave', () => {
       run.later(() => {
         this.set('mouseOnTarget', false);
-      }, 50);
+      }, DELAY_MS);
     });
 
     this.$('g.svg-tooltip-tip').on('mouseenter', () => {
@@ -38,7 +56,7 @@ export default Component.extend({
     this.$('g.svg-tooltip-tip').on('mouseleave', () => {
       run.later(() => {
         this.set('mouseOnTip', false);
-      }, 50);
+      }, DELAY_MS);
     });
   },
 

@@ -1,3 +1,5 @@
+8. add ember-cli-bootstrap-css, page layout, and home page
+
 7. implement line chart
 
 6. update pages to github

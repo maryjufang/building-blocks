@@ -1,8 +1,28 @@
-<h2>D3 Examples</h2>
-<div class="sidenav">
-  {{#link-to "charts"}}charts{{/link-to}}<br>
-  {{#link-to "icons"}}icons{{/link-to}}<br>
-</div>
-<div class="page-content">
-  {{outlet}}
-</div>
+{{#layout/nav-bar as |nav|}}
+  {{#if nav.home}}
+    <a href="/">
+      <span><img src="images/MaryChen.JPG" alt="Mary Chen" /></span> Mary Chen
+    </a>
+  {{/if}}
+  {{nav.nav-item label="Home" linkTo="/"}}
+  {{nav.nav-item label="Charts" linkTo="charts"}}
+  {{nav.nav-item label="Icons" linkTo="icons"}}
+{{/layout/nav-bar}}
+
+{{#layout/main-section}}
+  <h2>D3 Examples</h2>
+  <div class="sidenav">
+    {{#link-to "charts"}}charts{{/link-to}}<br>
+    {{#link-to "icons"}}icons{{/link-to}}<br>
+  </div>
+  <div class="page-content">
+    {{outlet}}
+  </div>
+{{/layout/main-section}}
+
+
+{{#layout/bottom-footer copyRight="2018 Mary Chen" as |footer|}}
+  {{footer.footer-icon icon="linkedin" tooltip="LinkedIn" linkTo="http://www.linkedin.com/pub/jufang-chen/77/4a8/946/"}}
+  {{footer.footer-icon icon="twitter" tooltip="Twitter" linkTo="http://twitter.com/JufangChen"}}
+  {{footer.footer-icon icon="facebook" tooltip="Facebook" linkTo="http://www.facebook.com/mary.chen.random"}}
+{{/layout/bottom-footer}}

@@ -1,6 +1,6 @@
 {{#svg-tooltip-wrapper as |wrapper|}}
   {{#if wrapper.target}}
-    {{component iconComponentName widthHeight=widthHeight dataTestId=dataTestId status=status}}
+    {{component iconComponentName width=width height=width radius=radius dataTestId=dataTestId status=status}}
   {{/if}}
   {{#if (and wrapper.tip tooltip)}}
     {{tooltip}}

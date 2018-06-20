@@ -1,0 +1,12 @@
+.svg-tooltip-tip {
+  background-color: $white;
+  color: $black;
+  border:solid $gray 1px;
+  border-radius: 6px;
+  padding: 5px;
+
+  position: absolute;
+  overflow: visible;
+  cursor: pointer;
+  z-index: $tooltip-index;
+}

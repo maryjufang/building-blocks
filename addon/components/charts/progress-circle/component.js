@@ -9,7 +9,6 @@ export default Component.extend(SvgBase, {
   width: 200,
   height: 200,
   radius: 100,
-  alignToParent: true,
   progress: 0,
 
   gTransform: computed('radius', function() {

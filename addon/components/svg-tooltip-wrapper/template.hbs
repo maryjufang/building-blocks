@@ -1,10 +1,8 @@
-<g class="svg-tooltip-target">
-  {{yield (hash target=true)}}
-</g>
+{{yield (hash target=true)}}
 {{#if showTooltip}}
-  <g transform={{gTransform}} class="svg-tooltip-tip">
-    <foreignObject>
+  <foreignObject>
+    <div class="svg-tooltip-tip" style={{tooltipStyle}}>
       {{yield (hash tip=true)}}
-    </foreignObject>
-  </g>
+    </div>
+  </foreignObject>
 {{/if}}

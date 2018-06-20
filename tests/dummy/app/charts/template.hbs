@@ -2,7 +2,11 @@
 
 line chart<br>
 
-{{charts/line-chart isLoading=false data=data yTitle="UNIT"}}
+{{#charts/line-chart isLoading=false data=data yTitle="UNIT" as |chart|}}
+  {{# if chart.tip}}
+    Tooltip example
+  {{/if}}
+{{/charts/line-chart}}
 <br>
 {{charts/line-chart isLoading=true}}
 <br>

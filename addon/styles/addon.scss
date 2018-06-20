@@ -1,9 +1,19 @@
 $error: #e62e00;
 $warning: #ffff00;
 $info: #33ffff;
+$success: #00ff00;
 $black: #000000;
 $white: #ffffff;
 $light-gray: #eeeeee;
 $gray: #555555;
 
+$tooltip-index: 1000;
+
+@import "nav-bar";
 @import "svg";
+@import "tooltip";
+
+body {
+    padding-top: 60px;
+    padding-bottom: 70px;
+}

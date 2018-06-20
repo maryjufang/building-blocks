@@ -8,7 +8,7 @@ export default Component.extend({
   layout,
   tagName: '',
   dataTestId: 'icon-component',
-  status: "default",
+  status: "default", // error, warning, info, success, default (black)
 
   size: 1,
 
@@ -16,8 +16,12 @@ export default Component.extend({
     return `icons/${this.get('icon')}-icon`;
   }),
 
-  widthHeight: computed('size', function() {
+  width: computed('size', function() {
     let size = this.get('size') / 2 + 1;
     return size * SIZE_ONE;
+  }),
+
+  radius: computed('width', function() {
+    return this.get('width') / 2;
   })
 });

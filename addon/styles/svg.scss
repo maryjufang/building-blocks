@@ -17,10 +17,20 @@ $line-4: #66ccff;
 .svg-info {
   fill: $info;
 }
+.svg-success {
+  fill: $success;
+}
 .svg-default {
   fill: $black;
 }
-
+.svg-mouse-catch {
+  fill: none;
+  fill-opacity: 0;
+}
+.svg-mouse-line {
+  stroke: $gray;
+  stroke-width: 1px;
+}
 .svg-line {
   fill: none;
   stroke-width: 2px;
@@ -50,17 +60,4 @@ $line-4: #66ccff;
 .svg-hover-background:hover {
   fill: $hover-background;
   fill-opacity: $hover-opacity;
-}
-
-g.svg-tooltip-tip {
-  background-color: $tip-background;
-  color: $tip-color;
-  border:solid $gray 1px;
-  border-radius: 6px;
-  padding: 5px;
-
-  position: absolute;
-  overflow:visible;
-  cursor: pointer;
-  z-index: 1;
 }
